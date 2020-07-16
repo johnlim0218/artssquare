@@ -1,32 +1,33 @@
 {
-  "compilerOptions": {
-    "target": "es2018",
-    "module": "ESNext",
-    "strict": true,
-    "lib": [
-      "es2018",
-      "ESNext.AsyncIterable",
-      "ESNext"
-    ],
-    "allowJs": true,
-    "jsx": "preserve",
-    "noEmit": true, // 결과파일을 저장하지 않음
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
-    // "typeRoots": ["@types", "node_modules/@types"],
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
-}
+   "compilerOptions": {
+     "target": "es2018",
+     "module": "ESNext",
+     "strict": true,
+     "lib": [
+       "es2018",
+       "ESNext.AsyncIterable",
+       "ESNext",
+       "DOM"
+     ],
+     "allowJs": true,
+     "jsx": "preserve",
+     "noEmit": true, // 결과파일을 저장하지 않음
+     "experimentalDecorators": true,
+     "emitDecoratorMetadata": true,
+     "esModuleInterop": true,
+     "allowSyntheticDefaultImports": true,
+     "moduleResolution": "node",
+     "skipLibCheck": true,
+     "forceConsistentCasingInFileNames": true,
+     "resolveJsonModule": true,
+     "isolatedModules": true
+     // "typeRoots": ["@types", "node_modules/@types"],
+   },
+   "exclude": [
+     "node_modules"
+   ],
+   "include": [
+     "**/*.ts",
+     "**/*.tsx"
+   ]
+ }

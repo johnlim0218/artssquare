@@ -1,48 +1,53 @@
 {
-  "name": "artssquare",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "14"
-  },
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --watch server --exec \"ts-node\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
-    "build": "next build",
-    "start": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnlim0218/artssquare.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/johnlim0218/artssquare/issues"
-  },
-  "homepage": "https://github.com/johnlim0218/artssquare#readme",
-  "dependencies": {
-    "apollo-server-express": "^2.15.1",
-    "class-validator": "^0.12.2",
-    "cross-env": "^7.0.2",
-    "express": "^4.17.1",
-    "graphql": "^15.3.0",
-    "graphql-middleware": "^4.0.2",
-    "mysql": "^2.18.1",
-    "next": "^9.4.4",
-    "next-compose-plugins": "^2.2.0",
-    "next-images": "^1.4.0",
-    "nodemon": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "reflect-metadata": "^0.1.13",
-    "ts-node": "^8.10.2",
-    "type-graphql": "^1.0.0-rc.3",
-    "typescript": "^3.8.3"
-  },
-  "devDependencies": {
-    "@types/node": "^14.0.23",
-    "@types/react": "^16.9.43"
-  }
+   "name": "artssquare",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "engines": {
+      "node": "14"
+   },
+   "scripts": {
+      "dev": "cross-env NODE_ENV=development nodemon --watch server --exec \"ts-node\" --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
+      "build": "next build",
+      "start": "ts-node src/index.ts",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/johnlim0218/artssquare.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/johnlim0218/artssquare/issues"
+   },
+   "homepage": "https://github.com/johnlim0218/artssquare#readme",
+   "dependencies": {
+      "apollo-server-express": "^2.15.1",
+      "class-validator": "^0.12.2",
+      "cross-env": "^7.0.2",
+      "express": "^4.17.1",
+      "graphql": "^15.3.0",
+      "graphql-middleware": "^4.0.2",
+      "mysql": "^2.14.1",
+      "next": "^9.4.4",
+      "next-compose-plugins": "^2.2.0",
+      "next-images": "^1.4.0",
+      "nodemon": "^2.0.4",
+      "puppeteer": "^5.1.0",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1",
+      "reflect-metadata": "^0.1.10",
+      "ts-node": "^8.10.2",
+      "type-graphql": "^1.0.0-rc.3",
+      "typeorm": "0.2.25",
+      "typescript": "^3.8.3"
+   },
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "@types/puppeteer": "^3.0.1",
+      "@types/react": "^16.9.43",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   }
 }

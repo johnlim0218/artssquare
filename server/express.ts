@@ -4,6 +4,7 @@ import { Application } from 'express';
 import { ApolloServer } from "apollo-server-express";
 import { applyMiddleware } from "graphql-middleware";
 import { buildSchemaSync, NonEmptyArray } from "type-graphql";
+import { connectDatabase } from './lib/connectDatabase';
 
 const resolvers: NonEmptyArray<Function> | NonEmptyArray<string> = [
   __dirname + "/models/**/*.resolver.{ts,js}",
@@ -14,6 +15,9 @@ const schema = applyMiddleware(
     resolvers,
   })
 );
+
+
+connectDatabase();
 
 const server = new ApolloServer({
   schema,
