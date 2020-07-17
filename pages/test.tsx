@@ -1,12 +1,11 @@
 import * as React from 'react';
+import TestComponent from '../client/components/Test';
 
-const Test = () => {
+const TestPage = () => {
 
   return (
-    <div>
-      Test
-    </div>
+    <TestComponent/>
   )
 }
 
-export default Test;
+export default TestPage;

@@ -1,19 +1,20 @@
 import { ObjectType, Field, ID } from 'type-graphql';
 
 @ObjectType()
-export class UserObject {
+export class ShippingObject {
   @Field(type => ID)
   id!: number;
- 
-  @Field()
-  email!: string;
 
   @Field()
-  createdAt!: Date;
+  productName!: string;
 
   @Field()
-  updatedAt!: Date;
+  recipient!: string;
 
-  @Field({ nullable: true })
-  deletedAt!: Date;
+  @Field()
+  address!: string;
+
+  @Field()
+  date!: string;
+
 }

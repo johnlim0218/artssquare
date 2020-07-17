@@ -1,12 +1,13 @@
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
-export class UserWhereInput {
+export class ShippingWhereInput {
   @Field({ nullable: true })
   id!: number;
 
   @Field({ nullable: true })
-  email!: string;
+  fromDate!: Date;
 
-  
+  @Field({ nullable: true })
+  toDate!: Date;
 }

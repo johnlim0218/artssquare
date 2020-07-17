@@ -12,10 +12,7 @@ export class UserResolver {
   ){
 
     try{
-      console.log(where);
-      const result = await firstMall();
-      console.log('--------------------------');
-      console.log(result);
+      
 
       return {};
     } catch(e) {
