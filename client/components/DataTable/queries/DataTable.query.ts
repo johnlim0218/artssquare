@@ -5,8 +5,11 @@ export const GET_SHIPPING_DATA = gql`
     getShippingData(where: $where) {
       productName
       recipient
+      addressStreet
       address
-      date
+      addressDetail
+      options
+      inputs
     }
   }
 `

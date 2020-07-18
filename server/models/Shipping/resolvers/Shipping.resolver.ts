@@ -5,19 +5,17 @@ import { firstMall } from '../../../lib/getFirstMallData';
 
 @Resolver()
 export class ShipingResolver {
-   @Query(() => ShippingObject)
+   @Query(() => [ShippingObject])
    async getShippingData(
      @Arg("where", { nullable: true }) where: ShippingWhereInput
    ) {
 
     try {
 
-
-      console.log(where);
       const result = await firstMall();
 
       console.log(result);
-      return {};
+      return result;
 
     } catch(e) {
       console.error(e);

@@ -2,7 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import fetch from 'isomorphic-unfetch';
-import { PORT } from '../../env.config';
+import { PORT } from '../../../env.config';
 
 export default function createApolloClient(initialState:any, ctx:any) {
 

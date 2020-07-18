@@ -1,7 +1,7 @@
 import * as React from 'react';
 import App, { AppProps } from 'next/app';
 import { Helmet } from 'react-helmet';
-import { withApollo } from '../client/lib/apollo';
+import { withApollo } from '../client/lib/apollo/apollo';
 
 interface Props extends AppProps {
 
