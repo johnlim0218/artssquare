@@ -74,19 +74,21 @@ export const firstMall = async() => {
       const detailedPage = await browser.newPage();
       await detailedPage.goto(`http://armway.firstmall.kr/admin/order/view?query_string=&no=${orderNumber}`);
 
+      await detailedPage.waitForSelector('#layout-body > table:nth-child(21) > tbody:nth-child(2) > tr > td:nth-child(5)');
       await detailedPage.waitForSelector('div.goods_name');
       await detailedPage.waitForSelector('div.goods_option');
       await detailedPage.waitForSelector('div.goods_input');
       await detailedPage.waitForSelector('table.order_shipping_table input');
 
       const item = await detailedPage.evaluate(async() => {
+          const orderNumber = document.querySelector('#layout-body > table:nth-child(21) > tbody:nth-child(2) > tr > td:nth-child(5)')?.textContent?.replace(/[\n\t]/g, '');
           const resultName = Array.from(document.querySelectorAll('div.goods_name'));
           const resultOption = Array.from(document.querySelectorAll('div.goods_option'));
           const resultInput = Array.from(document.querySelectorAll('div.goods_input'));
           const resultRecipiantForm = Array.from(document.querySelectorAll('table.order_shipping_table input'));
 
           let result: any = {
-            // orderNumber,
+            orderNumber,
             recipient: '',
             phone: '',
             cellPhone: '',
@@ -146,11 +148,11 @@ export const firstMall = async() => {
             }
           });
 
-          resultOption.map((value, index) => {
+          resultOption.map((value) => {
             result.options.push(value.textContent?.replace(/[\n\t]/g, ''));
           });
 
-          resultInput.map((value, index) => {
+          resultInput.map((value) => {
             result.inputs.push(value.textContent?.replace(/[\n\t]/g, ''));
           })
 

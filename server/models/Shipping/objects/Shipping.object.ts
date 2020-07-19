@@ -21,6 +21,9 @@ export class ShippingObject {
   cellPhone!: string;
 
   @Field()
+  zipcode!: string;
+
+  @Field()
   addressStreet!: string;
 
   @Field()

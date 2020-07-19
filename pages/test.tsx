@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TestComponent from '../client/components/Test';
+import TestComponent from '../client/views/Test';
 
 const TestPage = () => {
 
