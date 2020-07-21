@@ -4,6 +4,7 @@ import MuiTableBody from "@material-ui/core/TableBody";
 import MuiTableCell from "@material-ui/core/TableCell";
 import MuiTableHead from "@material-ui/core/TableHead";
 import MuiTableRow from "@material-ui/core/TableRow";
+import { StyledTable } from './Table.style';
 
 import { IProps } from './Table.interface';
 import { TableWrapper } from './Table.style';
@@ -14,8 +15,7 @@ const Table: React.FC<IProps> = ({
 }) => {
 
   return(
-    <div>
-      <MuiTable>
+      <StyledTable>
         <MuiTableHead>
           <MuiTableRow>
             {headData?.map((rowValue: any) => (
@@ -26,7 +26,7 @@ const Table: React.FC<IProps> = ({
           </MuiTableRow>
         </MuiTableHead>
 
-        <MuiTableBody>
+        <MuiTableBody> 
           {bodyData?.map((rowValue: any) => (
             <MuiTableRow key={rowValue[0]}>
               {rowValue.map((cellValue: any) => (
@@ -37,8 +37,7 @@ const Table: React.FC<IProps> = ({
             </MuiTableRow>
           ))}
         </MuiTableBody>
-      </MuiTable>
-    </div>
+      </StyledTable>
   )
 }
 
