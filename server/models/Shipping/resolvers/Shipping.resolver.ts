@@ -11,7 +11,8 @@ export class ShipingResolver {
    ) {
 
     try {
-
+      console.log('backend');
+      console.log(where);
       const result = await firstMall();
 
       console.log(result);

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import DataTableComponent from '../client/views/DataTable';
+import DataView from '../client/views/Data';
 
 const DataTablePage = () => {
 
   return(
-    <DataTableComponent/>
+    <DataView/>
   )
 }
 
