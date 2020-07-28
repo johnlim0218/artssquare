@@ -15,7 +15,7 @@ const DataFilterComponent = () => {
       to: fullYear + '-' + month + '-' + date as unknown as Date,
     })
   });
-  const { control, handleSubmit } = useForm<IForm>({});
+  const { control, handleSubmit, setValue } = useForm<IForm>({});
 
   // useEffect(() => {
   //   const today = new Date();
@@ -33,6 +33,7 @@ const DataFilterComponent = () => {
       ...prevState,
       from: date,
     }));
+    setValue('fromDate', date);
   }, [selectedDate]);
 
   const handleChangeToDate = useCallback((date:any) => {

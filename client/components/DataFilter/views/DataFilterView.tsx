@@ -38,6 +38,9 @@ const DataFilterView: React.FC<IProps> = ({
               <Controller
                 name="fromDate"
                 control={control}
+                onChange={([selected]:any) => (
+                  console.log(selected)
+                )}
                 as={
                   <DatePicker
                     disableToolbar
