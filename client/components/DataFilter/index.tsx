@@ -2,21 +2,58 @@ import * as React from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import DataFilterView from './views/DataFilterView';
+import { ISelectedDate, IForm } from './interface/DataFilter.interface';
 
 const DataFilterComponent = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(
-    new Date()
-  );
-  const { control, handleSubmit } = useForm();
+  const [selectedDate, setSelectedDate] = useState<ISelectedDate>(() => {
+    const today = new Date();
+    const fullYear = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
+    return({
+      from: fullYear + '-' + month + '-' + date as unknown as Date,
+      to: fullYear + '-' + month + '-' + date as unknown as Date,
+    })
+  });
+  const { control, handleSubmit } = useForm<IForm>({});
 
-  const handleChangeDate = useCallback((date) => {
-    setSelectedDate(date);
+  // useEffect(() => {
+  //   const today = new Date();
+  //   const fullYear = today.getFullYear();
+  //   const month = today.getMonth();
+  //   const date = today.getDate();
+  //   setSelectedDate({
+  //     from: fullYear + '-' + month + '-' + date as unknown as Date,
+  //     to: fullYear + '-' + month + '-' + date as unknown as Date,
+  //   })
+  // }, []);
+
+  const handleChangeFromDate = useCallback((date:any) => {
+    setSelectedDate((prevState:ISelectedDate) => ({
+      ...prevState,
+      from: date,
+    }));
   }, [selectedDate]);
+
+  const handleChangeToDate = useCallback((date:any) => {
+    setSelectedDate((prevState:ISelectedDate) => ({
+      ...prevState,
+      to: date,
+    }));
+  }, [selectedDate]);
+
+  const onSubmitFilterForm = useCallback((data) => {
+    console.log(data);
+  }, []);
 
   return (
     <DataFilterView
+      handleSubmit={handleSubmit}
+      onSubmitFilterForm={onSubmitFilterForm}
+      control={control}
       selectedDate={selectedDate}
-      handleChangeDate={handleChangeDate}
+      handleChangeFromDate={handleChangeFromDate}
+      handleChangeToDate={handleChangeToDate}
     />
   )
 }

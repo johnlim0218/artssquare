@@ -10,48 +10,61 @@ import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
+import { Controller } from 'react-hook-form';
 
 const DataFilterView: React.FC<IProps> = ({
+  handleSubmit,
+  onSubmitFilterForm,
+  control,
   selectedDate,
-  handleChangeDate
+  handleChangeFromDate,
+  handleChangeToDate,
 }) => {
-  console.log(selectedDate);
+  
   return (
     <Paper elevation={2}>
       <Typography variant="h6">
         필터
       </Typography>
-      <form>
+      <form
+        onSubmit={handleSubmit(onSubmitFilterForm)}
+      >
         <GridContainer alignItems="center">
           <GridItem xs={2}>
             기간
           </GridItem>
           <GridItem xs={10}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <DatePicker
-                disableToolbar
-                variant="inline"
-                format="MM/dd/yyyy"
-                margin="none"
-                id="date-picker-inline"
-                label="조회 시작일"
-                type="DateFnsUtils"
-                value={selectedDate}
-                onChange={handleChangeDate}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
+              <Controller
+                name="fromDate"
+                control={control}
+                as={
+                  <DatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="yyyy/MM/dd"
+                    margin="none"
+                    id="date-picker-inline"
+                    label="조회 시작일"
+                    type="DateFnsUtils"
+                    value={selectedDate.from}
+                    onChange={handleChangeFromDate}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                }
               />
               <DatePicker
                 disableToolbar
                 variant="inline"
-                format="MM/dd/yyyy"
+                format="yyyy/MM/dd"
                 margin="none"
                 id="date-picker-dialog"
                 label="조회 종료일"
                 type="DateFnsUtils"
-                value={selectedDate}
-                onChange={handleChangeDate}
+                value={selectedDate.to}
+                onChange={handleChangeToDate}
                 KeyboardButtonProps={{
                   "aria-label": "change date",
                 }}
@@ -64,7 +77,9 @@ const DataFilterView: React.FC<IProps> = ({
           alignItems="center"
         >
           <GridItem xs={12}>
-            <Button>
+            <Button
+              type="submit"
+            >
               가져오기
             </Button>
           </GridItem>

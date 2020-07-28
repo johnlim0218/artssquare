@@ -1,7 +1,20 @@
 import { DateType } from '@date-io/type';
+import { Control } from 'react-hook-form';
+
+export interface ISelectedDate {
+  from?: Date;
+  to?: Date;
+}
+
+export interface IForm {
+
+}
 
 export interface IProps {
-  selectedDate: Date;
-  handleChangeDate: (date: Date|null, value?: string | null | undefined) => void;
-  
+  handleSubmit: any;
+  onSubmitFilterForm: (data:IForm) => void;
+  control: Control<Record<string, any>>
+  selectedDate: ISelectedDate;
+  handleChangeFromDate: (date: Date|null, value?: string | null | undefined) => void;
+  handleChangeToDate: (date: Date|null, value?: string | null | undefined) => void;
 }
