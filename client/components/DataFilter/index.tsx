@@ -17,17 +17,6 @@ const DataFilterComponent = () => {
   });
   const { control, handleSubmit, setValue } = useForm<IForm>({});
 
-  // useEffect(() => {
-  //   const today = new Date();
-  //   const fullYear = today.getFullYear();
-  //   const month = today.getMonth();
-  //   const date = today.getDate();
-  //   setSelectedDate({
-  //     from: fullYear + '-' + month + '-' + date as unknown as Date,
-  //     to: fullYear + '-' + month + '-' + date as unknown as Date,
-  //   })
-  // }, []);
-
   const handleChangeFromDate = useCallback((date:any) => {
     setSelectedDate((prevState:ISelectedDate) => ({
       ...prevState,
@@ -41,6 +30,7 @@ const DataFilterComponent = () => {
       ...prevState,
       to: date,
     }));
+    setValue('toDate', date);
   }, [selectedDate]);
 
   const onSubmitFilterForm = useCallback((data) => {
