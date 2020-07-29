@@ -14,7 +14,9 @@ export interface IProps {
   handleSubmit: any;
   onSubmitFilterForm: (data:IForm) => void;
   control: Control<Record<string, any>>
-  selectedDate: ISelectedDate;
-  handleChangeFromDate: (date: Date|null, value?: string | null | undefined) => void;
-  handleChangeToDate: (date: Date|null, value?: string | null | undefined) => void;
+  getValues: any;
+  setValue: any;
+  // selectedDate: ISelectedDate;
+  // handleChangeFromDate: (date: Date|null, value?: string | null | undefined) => void;
+  // handleChangeToDate: (date: Date|null, value?: string | null | undefined) => void;
 }

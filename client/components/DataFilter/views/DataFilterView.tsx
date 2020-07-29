@@ -16,9 +16,11 @@ const DataFilterView: React.FC<IProps> = ({
   handleSubmit,
   onSubmitFilterForm,
   control,
-  selectedDate,
-  handleChangeFromDate,
-  handleChangeToDate,
+  getValues,
+  setValue,
+  // selectedDate,
+  // handleChangeFromDate,
+  // handleChangeToDate,
 }) => {
   
   return (
@@ -38,9 +40,6 @@ const DataFilterView: React.FC<IProps> = ({
               <Controller
                 name="fromDate"
                 control={control}
-                onChange={([selected]:any) => (
-                  console.log(selected)
-                )}
                 as={
                   <DatePicker
                     disableToolbar
@@ -50,28 +49,34 @@ const DataFilterView: React.FC<IProps> = ({
                     id="date-picker-inline"
                     label="조회 시작일"
                     type="DateFnsUtils"
-                    value={selectedDate.from}
-                    onChange={handleChangeFromDate}
+                    value={getValues().fromDate}
+                    onChange={(date) => setValue('fromDate', date)}
                     KeyboardButtonProps={{
                       "aria-label": "change date",
                     }}
                   />
                 }
               />
-              <DatePicker
-                disableToolbar
-                variant="inline"
-                format="yyyy/MM/dd"
-                margin="none"
-                id="date-picker-dialog"
-                label="조회 종료일"
-                type="DateFnsUtils"
-                value={selectedDate.to}
-                onChange={handleChangeToDate}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
+              <Controller
+                name="toDate"
+                control={control}
+                as={
+                  <DatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="yyyy/MM/dd"
+                    margin="none"
+                    id="date-picker-dialog"
+                    label="조회 종료일"
+                    type="DateFnsUtils"
+                    value={getValues().toDate}
+                    onChange={(date) => setValue('toDate', date)}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                  }
+                />
             </MuiPickersUtilsProvider>
           </GridItem>
         </GridContainer>

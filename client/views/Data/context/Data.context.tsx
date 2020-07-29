@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createContext, useState, useMemo } from 'react';
 import { IDataContext, IWhere } from '../interface/Data.interface';
 
-const DataContext = createContext<IDataContext>({} as IDataContext);
+export const DataContext = createContext<IDataContext>({} as IDataContext);
 
 const Data:React.FC = ({
   children
