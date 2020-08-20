@@ -1,14 +1,14 @@
 FROM node:12
 
-RUN mkdir -p /artssquare
-WORKDIR /artssquare
+WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app
 
-COPY package.json /artssquare
+COPY package.json /usr/src/app
+COPY package-lock.json /usr/src/app
+
 RUN npm install
-COPY . /artssquare
-RUN npm run build
+
 # RUN yarn && yarn certs
-# COPY . /usr/src/app
-EXPOSE  8080
+COPY . /usr/src/app
 
 CMD ["npm", "start"]

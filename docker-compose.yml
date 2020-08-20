@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+  artssquare-crawler:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    volumes: 
+      - ./pages:/usr/src/app/pages
+      - ./client:/usr/src/app/client
+      - ./server:/usr/src/app/server
+    command: "/bin/sh -c 'npm run dev'"
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment: 
+      MYSQL_DATABASE: artssquare_db
+      MYSQL_ROOT_PASSWORD: 1234
+    volumes:
+      - mysqldata:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3306:3306" #temporary
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+  
+volumes:
+  mysqldata:
+
+networks:
+  default:
+    external:
+      name: artssquare_networks
