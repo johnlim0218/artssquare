@@ -31,7 +31,7 @@ const DataTableView: React.FC<IProps> = ({
           ]}
 
           bodyData={
-            data.map((dataValue: any) => ([
+            data && data.map((dataValue: any) => ([
               <div>{dataValue.orderNumber}</div>,
               <div>{dataValue.productName}</div>,
               <div>{dataValue.recipient}</div>,
