@@ -5,7 +5,7 @@ import Router from 'next/router';
 const Main = () => {
 
   useEffect(() => {
-    Router.push('/datatable');
+    Router.push('/data');
   }, []);
 
   return (

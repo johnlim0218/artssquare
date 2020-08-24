@@ -9,7 +9,6 @@ const Layout:React.FC = ({
     <LayoutView
       children={children}
     />
-     
   )
 }
 
