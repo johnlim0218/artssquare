@@ -14,7 +14,17 @@ interface IRecipientForm {
   addressDetail?: string;
 }
 
-export const firstMall = async() => {
+export const firstMall = async({
+  fromDate = new Date(),
+  toDate = new Date()
+}) => {
+  
+  const newFromDate = fromDate.getFullYear() + '-' + (fromDate.getMonth() + 1) + '-' + fromDate.getDate();
+  const newToDate = toDate.getFullYear() + '-' + (toDate.getMonth() + 1) + '-' + toDate.getDate();
+  
+  console.log(newFromDate);
+  console.log(newToDate);
+
   const browser = await puppeteer.launch({
     // headless : false,
     args: ['--no-sandbox',  '--disable-setuid-sandbox']
@@ -55,7 +65,7 @@ export const firstMall = async() => {
       //   'X-Requested-With': 'XMLHttpRequest',
       },
       'postData': 
-      'query_string=&no=&keyword=&search_type=&regist_date_type=&date_field=regist_date&regist_date%5B%5D=2020-04-01&regist_date%5B%5D=2020-07-16&shipping_hope_sdate=&shipping_hope_edate=&shipping_reserve_sdate=&shipping_reserve_edate=&page=1&pagemode=&detailmode=&shipping_provider_seq=&bfStep=&nnum=&bankChk=N&last_step_cnt=undefined&last_step_settleprice=undefined&searchTime=2020-07-16 17',
+      `query_string=&no=&keyword=&search_type=&regist_date_type=&date_field=regist_date&regist_date%5B%5D=${newFromDate}&regist_date%5B%5D=${newToDate}&shipping_hope_sdate=&shipping_hope_edate=&shipping_reserve_sdate=&shipping_reserve_edate=&page=1&pagemode=&detailmode=&shipping_provider_seq=&bfStep=&nnum=&bankChk=N&last_step_cnt=undefined&last_step_settleprice=undefined&searchTime=2020-07-16 17`,
     });
   });
 
