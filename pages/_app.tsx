@@ -31,6 +31,10 @@ const ArtsSquare = (props: Props) => {
         meta={[{
           charSet: 'UTF-8'
         }]}
+        link={[{
+          rel: 'stylesheet', 
+          href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+        }]}
       />
       <ThemeProvider theme={theme}>
         <CssBaseline />

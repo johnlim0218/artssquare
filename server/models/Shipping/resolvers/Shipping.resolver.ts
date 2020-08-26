@@ -14,7 +14,7 @@ export class ShipingResolver {
       
       const result = await firstMall(where);
 
-      console.log(result);
+      
       return result;
 
     } catch(e) {

@@ -7,7 +7,7 @@ import { useCallback } from "react";
 export const useDataTableQuery = (
   where:any
 ) => {
-  console.log(where);
+  
   return useQuery(GET_SHIPPING_DATA, {
     variables: {
       ...where
