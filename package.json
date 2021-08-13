@@ -47,7 +47,7 @@
       "graphql-tag": "^2.10.4",
       "isomorphic-unfetch": "^3.0.0",
       "mysql": "^2.14.1",
-      "next": "^9.4.4",
+      "next": "^11.1.0",
       "next-compose-plugins": "^2.2.0",
       "next-images": "^1.4.0",
       "nodemon": "^2.0.4",
